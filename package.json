@@ -1,0 +1,13 @@
+{
+    "name": "node-twitcoin",
+    "version": "1.0.0",
+    "description": "Twitcoin NodeJS Client",
+    "keywords": ["twitcoin"],
+    "repository": "git://github.com/twitrocks/node-twitcoin.git",
+    "author": "Twit Rocks <twitrocks@gmail.com>",
+    "main": "lib/twitcoin.js",
+    "engines": { "node": ">= 0.4.0" },
+    "devDependencies": {
+        "nodeunit": "*"
+    }
+}
