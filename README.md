@@ -1,28 +1,28 @@
-# A Node.js Twitcoin Client!
+# A Node.js Htmlcoin Client!
 
-![Twitcoin](https://github.com/twitrocks/node-twitcoin/blob/master/node-twitcoin.png)
+![Htmlcoin](https://static.wixstatic.com/media/5f50f1_8a781f0010de4cba886f0f93fcd49c8a~mv2.png/v1/fill/w_123,h_28,al_c,usm_0.66_1.00_0.01,blur_3/5f50f1_8a781f0010de4cba886f0f93fcd49c8a~mv2.png)
 
-node-twitcoin is a twitcoin client for Node.js. It is a fork of the excellent Kapitalize Bitcoin Client (now removed from GitHub) intended for use with twitcoin. The purpose of this repository is:
+node-htmlcoin is a htmlcoin client for Node.js. It is a fork of the excellent Kapitalize Bitcoin Client (now removed from GitHub) intended for use with htmlcoin. The purpose of this repository is:
 
-* Provide a one-stop resource for the Node.js developer to get started with twitcoin integration.
-* Prevent would-be twitcoin web developers worrying whether a Bitcoin client will work out of the box.
-* Promote Node.js development of twitcoin web apps.
-* Identify and address any incompatibilities with the twitcoin and Bitcoin APIs that exist now and/or in the future.
+* Provide a one-stop resource for the Node.js developer to get started with htmlcoin integration.
+* Prevent would-be htmlcoin web developers worrying whether a Htmlcoin client will work out of the box.
+* Promote Node.js development of htmlcoin web apps.
+* Identify and address any incompatibilities with the htmlcoin and Bitcoin APIs that exist now and/or in the future.
 
 ## Dependencies
 
-You'll need a running instance of [twitcoind](https://github.com/twitrocks/twitcoin) to connect with.
+You'll need a running instance of [htmlcoind](https://github.com/HTMLCOIN/htmlcoin) to connect with.
 
-Then, install the node-twitcoin NPM package.
+Then, install the node-htmlcoin NPM package.
 
-`npm install node-twitcoin`
+`npm install node-htmlcoin`
 
 ## Examples
 
 Some code examples follow below:
 
 ```js
-var twitcoin = require('node-twitcoin')()
+var htmlcoin = require('node-htmlcoin')()
 
 twitcoin.auth('myusername', 'mypassword')
 
@@ -37,9 +37,9 @@ twitcoin.getDifficulty(function() {
 Pretty much everything is chainable.
 
 ```js
-var twitcoin = require('node-twitcoin')()
+var htmlcoin = require('node-htmlcoin')()
 
-twitcoin
+htmlcoin
 .auth('MyUserName', 'mypassword')
 .getNewAddress()
 .getBalance()
@@ -50,7 +50,7 @@ twitcoin
 The [Litecoin API](https://litecoin.info/Litecoin_API) (Bitcoin etc.) is supported as direct methods. Use either camelcase or lowercase.
 
 ```js
-twitcoin.getNewAddress(function(err, address) {
+htmlcoin.getNewAddress(function(err, address) {
     this.validateaddress(address, function(err, info) {
 
     })
@@ -62,9 +62,9 @@ Executes the given command with optional arguments. Function `callback` defaults
 All of the API commands are supported in lowercase or camelcase. Or uppercase. Anycase!
 
 ```js
-twitcoin.exec('getNewAddress')
+htmlcoin.exec('getNewAddress')
 
-twitcoin.exec('getbalance', function(err, balance) {
+htmlcoin.exec('getbalance', function(err, balance) {
 
 })
 ```
@@ -74,7 +74,7 @@ twitcoin.exec('getbalance', function(err, balance) {
 Accepts either key & value strings or an Object containing settings, returns `this` for chainability.
 
 ```js
-twitcoin.set('host', '127.0.0.1')
+htmlcoin.set('host', '127.0.0.1')
 ```
 
 ### .get(key [string])
@@ -82,7 +82,7 @@ twitcoin.set('host', '127.0.0.1')
 Returns the specified option's value
 
 ```js
-twitcoin.get('user')
+htmlcoin.get('user')
 ```
 
 ### .auth(user [string], pass [string])
@@ -105,7 +105,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 <tr>
 <td> addmultisigaddress </td>
 <td> [nrequired] ["key","key"] [account] </td>
-<td> Add a nrequired-to-sign multisignature address to the wallet. Each key is a twitcoin address or hex-encoded public key. If [account] is specified, assign address to [account]. </td>
+<td> Add a nrequired-to-sign multisignature address to the wallet. Each key is a htmlcoin address or hex-encoded public key. If [account] is specified, assign address to [account]. </td>
 <td> N
 </td></tr>
 <tr>
@@ -116,8 +116,8 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </td></tr>
 <tr>
 <td> dumpprivkey </td>
-<td> [twitcoinaddress] </td>
-<td> Reveals the private key corresponding to <twitcoinaddress< </td>
+<td> [htmlcoinaddress] </td>
+<td> Reveals the private key corresponding to <htmlcoinaddress< </td>
 <td> Y
 </td></tr>
 <tr>
@@ -128,14 +128,14 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </td></tr>
 <tr>
 <td> getaccount </td>
-<td> [twitcoinaddress] </td>
+<td> [htmlcoinaddress] </td>
 <td> Returns the account associated with the given address. </td>
 <td> N
 </td></tr>
 <tr>
 <td> getaccountaddress </td>
 <td> [account] </td>
-<td> Returns the current twitcoin address for receiving payments to this account. </td>
+<td> Returns the current htmlcoin address for receiving payments to this account. </td>
 <td> N
 </td></tr>
 <tr>
@@ -189,7 +189,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 <tr>
 <td> getgenerate </td>
 <td> </td>
-<td> Returns true or false whether twitcoind is currently generating hashes </td>
+<td> Returns true or false whether htmlcoind is currently generating hashes </td>
 <td> N
 </td></tr>
 <tr>
@@ -241,7 +241,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 <tr>
 <td> getnewaddress </td>
 <td> [account] </td>
-<td> Returns a new twitcoin address for receiving payments.  If [account] is specified (recommended), it is added to the address book so payments received with the address will be credited to [account]. </td>
+<td> Returns a new htmlcoin address for receiving payments.  If [account] is specified (recommended), it is added to the address book so payments received with the address will be credited to [account]. </td>
 <td> N
 </td></tr>
 <tr>
@@ -332,7 +332,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </li><li> "amount": total amount received by the address
 </li><li> "confirmations": number of confirmations of the most recent transaction included
 </li></ul>
-<p>To get a list of accounts on the system, execute twitcoind listreceivedbyaddress 0 true
+<p>To get a list of accounts on the system, execute htmlcoind listreceivedbyaddress 0 true
 </p>
 </td>
 <td> N
@@ -376,7 +376,7 @@ All [Litecoin API](https://litecoin.info/Litecoin_API) commands are supported, i
 </td></tr>
 <tr>
 <td> setaccount </td>
-<td> [twitcoinaddress] [account] </td>
+<td> [htmlcoinaddress] [account] </td>
 <td> Sets the account associated with the given address. Assigning address that is already assigned to the same account will create a new address associated with that account. </td>
 <td> N
 </td></tr>
@@ -390,7 +390,7 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 </td></tr>
 <tr>
 <td> signmessage </td>
-<td> [twitcoinaddress] [message] </td>
+<td> [htmlcoinaddress] [message] </td>
 <td> Sign a message with the private key of an address. </td>
 <td> Y
 </td></tr>
@@ -403,7 +403,7 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 <tr>
 <td> stop </td>
 <td> </td>
-<td> Stop twitcoin server. </td>
+<td> Stop htmlcoin server. </td>
 <td> N
 </td></tr>
 <tr>
@@ -414,7 +414,7 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 </td></tr>
 <tr>
 <td> verifymessage </td>
-<td> [twitcoinaddress] [signature] [message] </td>
+<td> [htmlcoinaddress] [signature] [message] </td>
 <td> Verify a signed message. </td>
 <td> N
 </td></tr>
@@ -443,19 +443,19 @@ You may pass options to the initialization function or to the `set` method.
 
 ```js
 
-var twitcoin = require('twitcoin')({
+var htmlcoin = require('htmlcoin')({
     user:'user'
 })
 
-twitcoin.set('pass', 'somn')
-twitcoin.set({port:22555})
+htmlcoin.set('pass', 'somn')
+htmlcoin.set({port:4888})
 
 ```
 
 Available options and default values:
 
 + host *localhost*
-+ port *22555*
++ port *4888*
 + user
 + pass
 + passphrasecallback
@@ -477,7 +477,7 @@ You may pass an optional function `passphrasecallback` to the `node-twitcoin` in
 You may hard code your passphrase (not recommended) as follows:
 
 ```js
-var twitcoin = require('node-twitcoin')({
+var htmlcoin = require('node-htmlcoin')({
     passphrasecallback: function(command, args, callback) {
         callback(null, 'passphrase', 30);
     }
@@ -494,7 +494,7 @@ var rl = readline.createInterface({
   output: process.stdout
 })
 
-var twitcoin = require('noTwitcoin-twitcoin')({
+var htmlcoin = require('noHtmlcoin-htmlcoin')({
   passphrasecallback: function(command, args, callback) {
     rl.question('Enter passphrase for "' + command + '" operation: ', function(passphrase) {
       if (passphrase) {
@@ -509,20 +509,20 @@ var twitcoin = require('noTwitcoin-twitcoin')({
 
 ### Secure RPC with SSL
 
-By default `twitcoind` exposes its JSON-RPC interface via HTTP; that is, all RPC commands are transmitted in plain text across the network! To secure the JSON-RPC channel you can supply `twitcoind` with a self-signed SSL certificate and an associated private key to enable HTTPS. For example, in your `twitcoin.conf`:
+By default `htmlcoind` exposes its JSON-RPC interface via HTTP; that is, all RPC commands are transmitted in plain text across the network! To secure the JSON-RPC channel you can supply `htmlcoind` with a self-signed SSL certificate and an associated private key to enable HTTPS. For example, in your `htmlcoin.conf`:
 
     rpcssl=1
-    rpcsslcertificatechainfile=/etc/ssl/certs/twitcoind.crt
-    rpcsslprivatekeyfile=/etc/ssl/private/twitcoind.pem
+    rpcsslcertificatechainfile=/etc/ssl/certs/htmlcoind.crt
+    rpcsslprivatekeyfile=/etc/ssl/private/htmlcoind.pem
 
-In order to securely access an SSL encrypted JSON-RPC interface you need a copy of the self-signed certificate from the server: in this case `twitcoind.crt`. Pass your self-signed certificate in the `ca` option and set `https: true` and node-twitcoin is secured!
+In order to securely access an SSL encrypted JSON-RPC interface you need a copy of the self-signed certificate from the server: in this case `htmlcoind.crt`. Pass your self-signed certificate in the `ca` option and set `https: true` and node-htmlcoin is secured!
     
 ```js
 var fs = require('fs')
 
-var ca = fs.readFileSync('twitcoind.crt')
+var ca = fs.readFileSync('htmlcoind.crt')
 
-var twitcoin = require('node-twitcoin')({
+var twitcoin = require('node-htmlcoin')({
   user: 'rpcusername',
   pass: 'rpcpassword',
   https: true,
@@ -535,9 +535,5 @@ var twitcoin = require('node-twitcoin')({
 ```
 npm install -g nodeunit
 
-nodeunit test/test-node-twitcoin.js
+nodeunit test/test-node-htmlcoin.js
 ```
-
-## Donations
-
-[twitcoin](http://www.twitcoin.io) donation address is D8jRk63FQDRUfeKqz99rkmCr47qsFUT5K2
