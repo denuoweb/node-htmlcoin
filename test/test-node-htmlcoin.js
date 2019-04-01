@@ -3,7 +3,7 @@ var fs = require('fs'),
 
 var config = {
     rpchost: "127.0.0.1",
-    rpcport: 44555,
+    rpcport: 14888,
     rpcuser: "testnet_user",
     rpcpassword: "testnet_pass"
 };
@@ -17,7 +17,7 @@ options = {
       https: true,
       ca: ca
     };
-var twitcoin = require('../lib/twitcoin')(options);
+var htmlcoin = require('../lib/htmlcoin')(options);
 
 exports.get = function (test) {
 	var options_keys = Object.keys(options);
@@ -42,10 +42,10 @@ exports.get = function (test) {
 exports.set = function (test) {
 
 	var new_options = {
-      host: '133.7.7.7',
-      port: 22556,
-      user: 'new_1337_^*)()',
-      pass: '*&@#cra$%zy@',
+      host: '',
+      port: 14888,
+      user: '',
+      pass: '',
       passphrasecallback: function () { return 1+1;},
       https: false,
       ca: 'nothing here'
@@ -62,8 +62,8 @@ exports.set = function (test) {
 
 	var idx = 0;
 	for(var propt in new_options){
-		twitcoin.set(''+options_keys[idx], new_options[ ''+options_keys[idx] ]);
-		test.deepEqual(twitcoin.get(''+options_keys[idx]), new_options[''+propt]);
+		htmlcoin.set(''+options_keys[idx], new_options[ ''+options_keys[idx] ]);
+		test.deepEqual(htmlcoin.get(''+options_keys[idx]), new_options[''+propt]);
 		idx ++;
 	}
 	test.done();
@@ -76,20 +76,19 @@ exports.set = function (test) {
 
 /*
 /* BEFORE RUNNING read below:
- * Either run twitcoind directly or run twitcoin-qt with the -server
- * command line option. Make sure you have a ~/.twitcoin/twitcoin.conf
+ * Either run htmlcoind directly or run htmlcoin-qt with the -server
+ * command line option. Make sure you have a ~/.htmlcoin/htmlcoin.conf
  * with rpcuser and rpcpassword config values filled out. Note that
- * newer versions of twitcoin (1.5 and above) don't allow identical
- * your rpc username and password to be identical.
+ * newer versions of htmlcoin.
  *
  */
 /*
 exports.commands_noAuth = {		
-	//NOTE: Before running the getBalance test add some testdoge to your wallet here: http://testdoge.lionservers.de/
-	// 			or add "gen=1" to the bottom of your twitcoin.conf file
+	//NOTE: Before running the getBalance test add some test htmlcoin to your wallet
+	// 			or add "gen=1" to the bottom of your htmlcoin.conf file
 	getBalance: function(test){
 		var curr_balance;
-		twitcoin.getBalance(function(err, balance) {
+		htmlcoin.getBalance(function(err, balance) {
 			test.ifError(err);
 		  if (err) {
 		    console.error('Failed to fetch balance', err.message);
@@ -105,19 +104,19 @@ exports.commands_noAuth = {
 
 	getGenerate: function(test){
 		test.expect(2);
-		twitcoin.setGenerate(true,1);	
-		test.equal(twitcoin.getGenerate(), true);
+		htmlcoin.setGenerate(true,1);	
+		test.equal(htmlcoin.getGenerate(), true);
 
-		twitcoin.setGenerate(false,1);	
-		test.equal(twitcoin.getGenerate(), false);
+		htmlcoin.setGenerate(false,1);	
+		test.equal(htmlcoin.getGenerate(), false);
 		test.done();
 	},
 	getreceived_: function(test){
 		var amount= 0.0001;
-		//twitcoin.setAccount()
-		sendfrom("testnet_user", twitcoin.getaccountaddress('testnet_user'),amount, function(err,addr){
+		//htmlcoin.setAccount()
+		sendfrom("testnet_user", htmlcoin.getaccountaddress('testnet_user'),amount, function(err,addr){
 			test.equal(getreceivedbyaccount('testnet_user', amount);
-			test.equal( getreceivedbyaddress( twitcoin.getaccountaddress('testnet_user') ), amount);
+			test.equal( getreceivedbyaddress( htmlcoin.getaccountaddress('testnet_user') ), amount);
 			test.done();
 
 		});
@@ -133,7 +132,7 @@ exports.commands_noAuth = {
 exports.commands_Auth = {		
 	
 	setUp: function () {
-		twitcoin.auth('testnet_user', 'testnet_pass');
+		htmlcoin.auth('testnet_user', 'testnet_pass');
 	}
 
 	
