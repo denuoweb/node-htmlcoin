@@ -24,9 +24,9 @@ Some code examples follow below:
 ```js
 var htmlcoin = require('node-htmlcoin')()
 
-twitcoin.auth('myusername', 'mypassword')
+htmlcoin.auth('myusername', 'mypassword')
 
-twitcoin.getDifficulty(function() {
+htmlcoin.getDifficulty(function() {
     console.log(arguments);
 })
 
