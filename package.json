@@ -5,7 +5,7 @@
     "keywords": ["htmlcoin"],
     "repository": "git://github.com/denuoweb/node-htmlcoin.git",
     "author": "Twit Rocks <twitrocks@gmail.com>",
-    "main": "lib/twitcoin.js",
+    "main": "lib/htmlcoin.js",
     "engines": { "node": ">= 0.4.0" },
     "devDependencies": {
         "nodeunit": "*"
