@@ -507,29 +507,6 @@ var htmlcoin = require('noHtmlcoin-htmlcoin')({
 })
 ```
 
-### Secure RPC with SSL
-
-By default `htmlcoind` exposes its JSON-RPC interface via HTTP; that is, all RPC commands are transmitted in plain text across the network! To secure the JSON-RPC channel you can supply `htmlcoind` with a self-signed SSL certificate and an associated private key to enable HTTPS. For example, in your `htmlcoin.conf`:
-
-    rpcssl=1
-    rpcsslcertificatechainfile=/etc/ssl/certs/htmlcoind.crt
-    rpcsslprivatekeyfile=/etc/ssl/private/htmlcoind.pem
-
-In order to securely access an SSL encrypted JSON-RPC interface you need a copy of the self-signed certificate from the server: in this case `htmlcoind.crt`. Pass your self-signed certificate in the `ca` option and set `https: true` and node-htmlcoin is secured!
-    
-```js
-var fs = require('fs')
-
-var ca = fs.readFileSync('htmlcoind.crt')
-
-var twitcoin = require('node-htmlcoin')({
-  user: 'rpcusername',
-  pass: 'rpcpassword',
-  https: true,
-  ca: ca
-})
-```
-
 ## Testing
 
 ```
